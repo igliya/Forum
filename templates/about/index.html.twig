@@ -1,20 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AboutController!{% endblock %}
+{% block title %}О проекте{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/OSPanel/domains/forum/src/Controller/AboutController.php'|file_link(0) }}">src/Controller/AboutController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/OSPanel/domains/forum/templates/about/index.html.twig'|file_link(0) }}">templates/about/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% block content %}
+    <!-- About start -->
+    <div class="about">
+        <div class="wrapper">
+            <div class="about__info">
+                <h1 class="about__title">
+                    Лабораторная работа №3 по дисциплине "Технологии разработки WEB-приложений"
+                </h1>
+                <div class="about__content">
+                    <div>Вариант 4. Форум</div><br/>
+                    <div>На всех страницах в шапке сайта для неавторизованных пользователей выводить ссылки на авторизацию
+                        и регистрацию, для авторизованных - приветствие, кнопку “Выход” и имя пользователя.</div>
+                    <div>На главной странице выводятся топики форума, отсортированные по дате добавления.
+                        У каждого топика выводится заголовок, дата добавления и количество комментариев к нему.</div><br/>
+                    <div>
+                        На странице топика выводится:
+                        <ul>
+                            <li>- заголовок;</li>
+                            <li>- текст;</li>
+                            <li>- имя автора;</li>
+                            <li>- раздел топика;</li>
+                            <li>- список комментариев пользователей, отсортированных по дате добавления;</li>
+                            <li>- форма “Добавить комментарий” (текстовое поле и кнопка  “Отправить”).</li>
+                        </ul>
+                    </div><br/>
+                    <div>
+                        На странице добавления топика располагается форма с полями:
+                        <ul>
+                            <li>- заголовок топика;</li>
+                            <li>- текст топика;</li>
+                            <li>- раздел топика.</li>
+                        </ul>
+                    </div><br/>
+                    <div>Если какие-то из обязательных полей не заполнены, сохранения в БД не происходит, на форме
+                        выводятся сообщения об ошибках. Заполненные пользователем текстовые поля не сбрасываются.</div>
+                    <div>При создании топика пользователь может указать раздел только из заранее определенного списка.</div>
+                    <div>После успешной отправки выполнять редирект на страницу созданного топика.</div>
+                    <div>Все пользователи (в том числе неавторизованные) могут просматривать топики и ответы к ним.
+                        Авторизованные пользователи могут добавлять и комментировать топики.
+                        Пользователь с правами администратора должен иметь возможность удаления и редактирования топиков,
+                        а также удаления комментариев.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About end -->
 {% endblock %}
