@@ -296,7 +296,11 @@ html {
 
 body {
     height: 970px;
-    background-image:  url(../images/bg.png);;
+    background-image: url(../images/bg.png);
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
@@ -357,10 +361,29 @@ body {
 /* header style end */
 
 /* about style start */
+.home {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+}
+/* about style end */
+
+/* about style start */
 .about {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
     font-size: 64px;
+}
+/* about style end */
+
+/* about style start */
+.about__content {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5;
+    font-size: 32px;
 }
 /* about style end */
