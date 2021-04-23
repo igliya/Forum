@@ -24,12 +24,18 @@
                             <li class="header__item">
                                 <a href="{{ path('app_about') }}" class="header__link">О сайте</a>
                             </li>
-                            <li class="header__item">
-                                <a href="{{ path('app_login') }}" class="header__link">Вход</a>
-                            </li>
-                            <li class="header__item">
-                                <a href="{{ path('app_register') }}" class="header__link">Регистрация</a>
-                            </li>
+                            {% if app.user is same as(null) %}
+                                <li class="header__item">
+                                    <a href="{{ path('app_login') }}" class="header__link">Вход</a>
+                                </li>
+                                <li class="header__item">
+                                    <a href="{{ path('app_register') }}" class="header__link">Регистрация</a>
+                                </li>
+                            {% else %}
+                                <li class="header__item">
+                                    <a href="{{ path('app_logout') }}" class="header__link">Выход</a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </nav>
                 </div>
