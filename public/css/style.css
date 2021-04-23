@@ -358,6 +358,19 @@ body {
 }
 /* header style end */
 
+.error__title {
+    text-align: center;
+}
+
+/* error style start */
+.error {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+}
+/* error style end */
+
 /* about style start */
 .home {
     font-family: Montserrat;
