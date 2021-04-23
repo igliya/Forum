@@ -455,3 +455,10 @@ form .button input {
     box-shadow: #5d5e69;
 }
 /* login style end */
+
+.incorrect-credentials {
+    display: block;
+    font-weight: 500;
+    margin-top: 15px;
+    color: red
+}
