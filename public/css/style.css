@@ -459,6 +459,6 @@ form .button input {
 .incorrect-credentials {
     display: block;
     font-weight: 500;
-    margin-top: 15px;
-    color: red
+    color: red;
+    text-align: center;
 }

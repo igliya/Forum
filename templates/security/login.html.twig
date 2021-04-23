@@ -17,10 +17,11 @@
                     <span class="details">Пароль</span>
                     <input type="password" name="password" id="inputPassword" placeholder="Введите пароль" required>
                 </div>
-                {% if error %}
-                    <div class="incorrect-credentials">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
+
             </div>
+            {% if error %}
+                <div class="incorrect-credentials">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
             <div class="button">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                 <input type="submit" value="Войти">
