@@ -17,7 +17,6 @@
                     <span class="details">Пароль</span>
                     <input type="password" name="password" id="inputPassword" placeholder="Введите пароль" required>
                 </div>
-
             </div>
             {% if error %}
                 <div class="incorrect-credentials">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

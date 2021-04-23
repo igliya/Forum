@@ -22,7 +22,7 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         // redirect to app_home if user have logged in
-        if($this->getUser() !== null){
+        if ($this->getUser() !== null) {
             return new RedirectResponse($this->generateUrl('app_home'));
         }
         $user = new User();
