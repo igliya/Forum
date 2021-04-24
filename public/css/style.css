@@ -376,6 +376,13 @@ body {
     color: red;
     text-align: center;
 }
+
+.register-errors {
+    display: block;
+    font-weight: 500;
+    line-height: 30px;
+    color: red;
+}
 /* form errors styles end */
 
 /* home styles start */
@@ -473,3 +480,17 @@ form .button input {
     box-shadow: #5d5e69;
 }
 /* login styles end */
+
+/* register styles start*/
+.checkbox {
+    margin-top: 10px;
+}
+
+.checkbox-label {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+}
+/* register styles end*/
