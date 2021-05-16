@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\CommentRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CommentRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Comment
 {
@@ -78,6 +80,14 @@ class Comment
         $this->topic = $topic;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function updateCreatedDate(): void
+    {
+        $this->setCreatedDate(new DateTime('now'));
     }
 
     public function getCreatedDate(): ?\DateTimeInterface

@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\TopicRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=TopicRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Topic
 {
@@ -107,6 +109,14 @@ class Topic
         $this->author = $author;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function updateCreatedDate(): void
+    {
+        $this->setCreatedDate(new DateTime('now'));
     }
 
     public function getCreatedDate(): ?\DateTimeInterface
