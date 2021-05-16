@@ -101,4 +101,9 @@ class Comment
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->author . ' | ' . substr($this->text, 0, 10);
+    }
 }
