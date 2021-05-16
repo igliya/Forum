@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
- * @UniqueEntity(fields={"email"}, message="Аккаунт с указанным email уже существуетgit ")
+ * @UniqueEntity(fields={"email"}, message="Аккаунт с указанным email уже существует")
  */
 class User implements UserInterface
 {
@@ -133,5 +133,10 @@ class User implements UserInterface
         $this->name = $name;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->email;
     }
 }
