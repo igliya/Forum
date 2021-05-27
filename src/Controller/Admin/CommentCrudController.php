@@ -30,7 +30,7 @@ class CommentCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         return $actions
-            ->disable(Action::DELETE);
+            ->disable(Action::NEW);
     }
 
     public function configureFields(string $pageName): iterable
