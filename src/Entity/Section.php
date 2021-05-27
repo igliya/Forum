@@ -32,7 +32,7 @@ class Section
     private $code;
 
     /**
-     * @ORM\OneToMany(targetEntity=Topic::class, mappedBy="section")
+     * @ORM\OneToMany(targetEntity=Topic::class, mappedBy="section", orphanRemoval=true)
      */
     private $topics;
 
