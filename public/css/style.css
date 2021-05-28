@@ -531,3 +531,12 @@ form .button input {
     font-size: 18px;
 }
 /* topic table styles end */
+
+/* paginator styles start */
+.paginator__text {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+/* paginator styles end */

@@ -20,7 +20,7 @@
             </tr>
             </thead>
             <tbody class="topic-table__content">
-            {% for topic in topics %}
+            {% for topic in pagination %}
                 <tr>
                     <td><a href="#">{{ topic.title }}</a></td>
                     <td>{{ topic.author }}</td>
@@ -30,6 +30,9 @@
             {% endfor %}
             </tbody>
         </table>
+        <div class="navigation paginator__text">
+            {{ knp_pagination_render(pagination) }}
+        </div>
     </div>
     <!-- Home end -->
 {% endblock %}
