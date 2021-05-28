@@ -37,6 +37,6 @@ class TopicCrudController extends AbstractCrudController
             ->hideOnForm()
         ;
         yield AssociationField::new('section')->setLabel('Раздел')->setRequired(true);
-        yield AssociationField::new('author')->setLabel('Автор')->hideOnForm();
+        yield AssociationField::new('author')->setLabel('Автор')->setRequired(true);
     }
 }
