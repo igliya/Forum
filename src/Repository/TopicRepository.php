@@ -25,4 +25,14 @@ class TopicRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findBySection($value)
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.section = :val')
+            ->setParameter('val', $value)
+            ->orderBy('t.createdDate', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

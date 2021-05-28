@@ -25,13 +25,17 @@ class HomeController extends AbstractController
     /**
      * @Route("/{sectionCode}", name="app_sections")
      */
-    public function sections(SectionRepository $sectionRepository, string $sectionCode): Response
-    {
+    public function sections(
+        TopicRepository $topicRepository,
+        SectionRepository $sectionRepository,
+        string $sectionCode
+    ): Response {
         $section = $sectionRepository->findByCode($sectionCode);
         if ($section === null) {
             throw new NotFoundHttpException();
         }
         return $this->render('section/show.html.twig', [
+            'topics' => $topicRepository->findBySection($section),
             'section' => $section,
             'sections' => $sectionRepository->findAll()
         ]);
