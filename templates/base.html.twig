@@ -34,6 +34,9 @@
                                     <a href="{{ path('app_register') }}" class="header__link">Регистрация</a>
                                 </li>
                             {% else %}
+                                <li class="header__item">
+                                    <a href="{{ path('app_new_topic') }}" class="header__link">Создать топик</a>
+                                </li>
                                 {% if is_granted('ROLE_ADMIN') %}
                                     <li class="header__item">
                                         <a href="{{ path('app_admin') }}" class="header__link">Администрирование</a>
@@ -45,8 +48,6 @@
                             {% endif %}
                         </ul>
                     </nav>
-
-
                 </div>
             </div>
         </header>

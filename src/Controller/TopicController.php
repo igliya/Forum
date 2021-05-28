@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TopicController extends AbstractController
 {
     /**
-     * @Route("/new", name="topic_new", methods={"GET","POST"})
+     * @Route("/new", name="app_new_topic", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
