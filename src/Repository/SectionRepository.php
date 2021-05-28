@@ -25,14 +25,4 @@ class SectionRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-
-    public function findByCode($value): ?Section
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.code = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
 }

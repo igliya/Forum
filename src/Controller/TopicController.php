@@ -28,7 +28,7 @@ class TopicController extends AbstractController
             $entityManager->persist($topic);
             $entityManager->flush();
 
-            return $this->redirectToRoute('topic_index');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('topic/new.html.twig', [

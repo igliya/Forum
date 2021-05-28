@@ -52,6 +52,7 @@
             </div>
         </header>
         <!-- Header end -->
+        {% block main %}
         <div class="row main__row">
             <nav class="col-md-2 d-none d-md-block sidebar">
                 <div class="sidebar-sticky">
@@ -76,6 +77,7 @@
                 {% endblock %}
             </main>
         </div>
+        {% endblock %}
         {% block javascripts %}
         {% endblock %}
     </body>

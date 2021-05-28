@@ -30,14 +30,22 @@ class HomeController extends AbstractController
         SectionRepository $sectionRepository,
         string $sectionCode
     ): Response {
-        $section = $sectionRepository->findByCode($sectionCode);
+        $sections = $sectionRepository->findAll();
+        $section = null;
+        // find section by code from slug
+        foreach ($sections as $item) {
+            if ($sectionCode === $item->getCode()) {
+                $section = $item;
+                break;
+            }
+        }
         if ($section === null) {
             throw new NotFoundHttpException();
         }
         return $this->render('section/show.html.twig', [
-            'topics' => $topicRepository->findBySection($section),
             'section' => $section,
-            'sections' => $sectionRepository->findAll()
+            'sections' => $sections,
+            'topics' => $topicRepository->findBySection($section)
         ]);
     }
 }
