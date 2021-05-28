@@ -18,4 +18,14 @@ class SectionRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Section::class);
     }
+
+    public function findByCode($value): ?Section
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.code = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

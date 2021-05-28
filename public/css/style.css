@@ -99,7 +99,7 @@ html {
 }
 
 a:focus {
-    outline: thin dotted;
+    outline: none;
 }
 
 a:active,
@@ -314,6 +314,11 @@ body {
     padding: 30px;
 }
 
+/* width correction */
+.main__row {
+    max-width: 100%;
+}
+
 /* header style start */
 .header {
     top: 0;
@@ -494,3 +499,17 @@ form .button input {
     line-height: 16px;
 }
 /* register styles end*/
+
+/* section styles start */
+.section__link {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    color: #172E68;
+    font-size: 18px;
+}
+
+.section__title {
+    font-size: 24px;
+}
+/* section styles end */

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Repository\SectionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,13 +15,17 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class RegistrationController extends AbstractController
 {
     /**
-     * @Route("/register", name="app_register")
+     * @Route("/register", name="app_register", priority="1")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param SectionRepository $sectionRepository
      * @return Response
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
-    {
+    public function register(
+        Request $request,
+        UserPasswordEncoderInterface $passwordEncoder,
+        SectionRepository $sectionRepository
+    ): Response {
         // redirect to app_home if user have logged in
         if ($this->getUser() !== null) {
             return new RedirectResponse($this->generateUrl('app_home'));
@@ -49,6 +54,7 @@ class RegistrationController extends AbstractController
         // render registration form
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'sections' => $sectionRepository->findAll()
         ]);
     }
 }
