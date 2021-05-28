@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\SectionRepository;
+use App\Repository\TopicRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -13,9 +14,10 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="app_home")
      */
-    public function index(SectionRepository $sectionRepository): Response
+    public function index(SectionRepository $sectionRepository, TopicRepository $topicRepository): Response
     {
         return $this->render('home/index.html.twig', [
+            'topics' => $topicRepository->findAll(),
             'sections' => $sectionRepository->findAll()
         ]);
     }

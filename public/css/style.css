@@ -6,8 +6,7 @@ del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
+fieldset, form, label, legend, caption,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
@@ -45,11 +44,6 @@ blockquote:before, blockquote:after,
 q:before, q:after {
     content: '';
     content: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
 }
 
 input[type=search]::-webkit-search-cancel-button,
@@ -110,6 +104,17 @@ a:hover {
 img {
     border: 0; /* 1 */
     -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+tr {
+    height: 50px;
+    vertical-align: middle;
+}
+
+th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
 }
 
 figure {
@@ -196,11 +201,6 @@ input::-moz-focus-inner {
 textarea {
     overflow: auto; /* 1 */
     vertical-align: top; /* 2 */
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
 }
 
 html,
@@ -513,3 +513,21 @@ form .button input {
     font-size: 24px;
 }
 /* section styles end */
+
+/* topic table styles start */
+.topic-table__header {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    color: #172E68;
+    font-size: 18px;
+}
+
+.topic-table__content {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    color: #172E68;
+    font-size: 18px;
+}
+/* topic table styles end */
