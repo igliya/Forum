@@ -43,7 +43,7 @@ class AppFixtures extends Fixture
         $manager->persist($admin);
         // create sections
         $sections = ['animals' => 'Животные', 'books' => 'Книги', 'medicine' => 'Медицина', 'sport' => 'Спорт',
-            'tv-and-cinema ' => 'ТВ и кино', 'photos' => 'Фото', 'computer-science' => 'Компьютерные технологии'];
+            'tv-and-cinema' => 'ТВ и кино', 'photos' => 'Фото', 'computer-science' => 'Компьютерные технологии'];
         foreach ($sections as $code => $name) {
             $section = new Section();
             $section->setCode($code);
