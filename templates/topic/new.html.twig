@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Topic{% endblock %}
+{% block title %}Создание нового топика{% endblock %}
 
-{% block body %}
-    <h1>Create new Topic</h1>
-
-    {{ include('topic/_form.html.twig') }}
-
-    <a href="{{ path('topic_index') }}">back to list</a>
+{% block content %}
+    <!-- New topic form start -->
+    <div class="container">
+        <div class="title text-center">Создание нового топика</div>
+        <div class="content">
+            {{ include('topic/_form.html.twig') }}
+        </div>
+    </div>
+    <!-- New topic form end -->
 {% endblock %}

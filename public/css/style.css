@@ -540,3 +540,69 @@ form .button input {
     justify-content: center;
 }
 /* paginator styles end */
+
+/* new topic form styles start */
+.content form .new-topic-details {
+    width: 100%;
+    display: inline;
+    justify-content: space-between;
+    margin: 20px 0 12px 20px;
+}
+
+form .new-topic-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+form .input-box span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.new-topic-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 15px;
+    padding-left: 15px;
+    border: 0.2px solid rgb(211, 211, 224);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.new-topic-details .input-box select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") no-repeat;
+    background-position-x: 100%;
+    background-position-y: 5px;
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 15px;
+    padding-left: 15px;
+    border: 0.2px solid rgb(211, 211, 224);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.new-topic-details .input-box textarea {
+    height: 100px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 15px;
+    padding-left: 15px;
+    border: 0.2px solid rgb(211, 211, 224);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.new-topic-details .input-box input:focus,
+.new-topic-details .input-box input:valid {
+    border-color: #bfc1df;
+}
+/* new topic form styles end */

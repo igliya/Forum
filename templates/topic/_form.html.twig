@@ -1,4 +1,31 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+            {% set formErrors = form.vars.errors.form.getErrors(true) %}
+            {% if formErrors|length %}
+                <div class="user-details">
+                    <ul>
+                        {% for error in formErrors %}
+                            <li class="register-errors">
+                                ● {{ error.message }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+<div class="new-topic-details">
+    <div class="input-box">
+        <span class="details">Название топика</span>
+        {{ form_widget(form.title) }}
+    </div>
+    <div class="input-box">
+        <span class="details">Текст топика</span>
+        {{ form_widget(form.text) }}
+    </div>
+    <div class="input-box">
+        <span class="details">Раздел топика</span>
+        {{ form_widget(form.section) }}
+    </div>
+</div>
+<div class="button">
+    <input type="submit" value="Создать топик">
+</div>
 {{ form_end(form) }}
