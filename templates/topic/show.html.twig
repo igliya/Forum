@@ -24,7 +24,7 @@
         </div>
     {% endif %}
     <!-- Topic comments -->
-    {% for comment in topic.comments %}
+    {% for comment in pagination %}
         <div class="d-flex{% if app.user is not same as(null) %}
             {% if app.user.id is same as (comment.author.id) %}
                 {{ "flex-row-reverse" }}
@@ -46,4 +46,7 @@
             </div>
         </div>
     {% endfor %}
+    <div class="navigation paginator__text">
+        {{ knp_pagination_render(pagination) }}
+    </div>
 {% endblock %}

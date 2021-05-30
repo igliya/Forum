@@ -6,7 +6,9 @@ use App\Entity\Comment;
 use App\Entity\Topic;
 use App\Form\CommentType;
 use App\Form\TopicType;
+use App\Repository\CommentRepository;
 use App\Repository\SectionRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,8 +51,33 @@ class TopicController extends AbstractController
     /**
      * @Route("/{id}", name="topic_show", methods={"GET", "POST"})
      */
-    public function show(SectionRepository $sectionRepository, Topic $topic, Request $request): Response
-    {
+    public function show(
+        SectionRepository $sectionRepository,
+        CommentRepository $commentRepository,
+        PaginatorInterface $paginator,
+        Topic $topic,
+        Request $request
+    ): Response {
+        // get comments query
+        $commentsQuery = $commentRepository->createQueryBuilder('c')
+            ->where('c.topic = :value')
+            ->setParameter('value', $topic)
+            ->orderBy('c.createdDate', 'DESC')
+            ->getQuery()
+        ;
+        // get page number
+        $page_number = $request->query->getInt('page', 1);
+        // set correct page number
+        if ($page_number < 1) {
+            $page_number = 1;
+        }
+        // paginate
+        $pagination = $paginator->paginate(
+            $commentsQuery,
+            $page_number,
+            10
+        );
+        // if user logged in
         if ($this->getUser()) {
             $comment = new Comment();
             $comment->setAuthor($this->getUser());
@@ -68,6 +95,7 @@ class TopicController extends AbstractController
 
             return $this->render('topic/show.html.twig', [
                 'topic' => $topic,
+                'pagination' => $pagination,
                 'form' => $form->createView(),
                 'sections' => $sectionRepository->findAll()
             ]);
@@ -75,6 +103,7 @@ class TopicController extends AbstractController
 
         return $this->render('topic/show.html.twig', [
             'topic' => $topic,
+            'pagination' => $pagination,
             'sections' => $sectionRepository->findAll()
         ]);
     }
