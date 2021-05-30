@@ -362,7 +362,7 @@ body {
     opacity: .85;
 }
 
-.no-hover{
+.no-hover {
     pointer-events: none;
 }
 /* header style end */
