@@ -599,6 +599,7 @@ form .input-box span.details {
     width: 100%;
     outline: none;
     font-size: 16px;
+    line-height: 1.5;
     border-radius: 15px;
     padding-left: 15px;
     border: 0.2px solid rgb(211, 211, 224);
@@ -629,6 +630,10 @@ form .input-box span.details {
     background: #DEDDF1;
     color: #172E68;
     padding: 15px;
+}
+
+.topic-text-block {
+    word-break: break-word;
 }
 
 .topic-text-comment {
@@ -684,6 +689,7 @@ form .input-box span.details {
     width: 100%;
     outline: none;
     font-size: 16px;
+    line-height: 1.5;
     border-radius: 15px;
     padding-left: 15px;
     border: 0.2px solid rgb(211, 211, 224);

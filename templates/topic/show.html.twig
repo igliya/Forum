@@ -11,7 +11,7 @@
                 <span class="topic-author">{{ topic.author.name }}</span>
                 <span class="topic-date">{{ topic.createdDate|date('d.m.Y H:i:s') }}</span>
             </div>
-            <span>{{ topic.text|raw }}</span>
+            <span class="topic-text-block">{{ topic.text|raw }}</span>
         </div>
     </div>
     <hr class="topic-divider"/>
@@ -42,7 +42,7 @@
                     </span>
                     <span class="topic-date">{{ comment.createdDate|date('d.m.Y H:i:s') }}</span>
                 </div>
-                <span>{{ comment.text }}</span>
+                <span class="topic-text-block">{{ comment.text }}</span>
             </div>
         </div>
     {% endfor %}
