@@ -25,10 +25,12 @@
     {% endif %}
     <!-- Topic comments -->
     {% for comment in topic.comments %}
-        <div class="d-flex{% if app.user.id is same as (comment.author.id) %}
-            {{ "flex-row-reverse" }}
-        {% else %}
-            {{ "flex-row" }}
+        <div class="d-flex{% if app.user is not same as(null) %}
+            {% if app.user.id is same as (comment.author.id) %}
+                {{ "flex-row-reverse" }}
+            {% else %}
+                {{ "flex-row" }}
+            {% endif %}
         {% endif %}">
             <div class="topic-text-comment rounded shadow">
                 <div>

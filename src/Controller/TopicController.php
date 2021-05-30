@@ -51,23 +51,30 @@ class TopicController extends AbstractController
      */
     public function show(SectionRepository $sectionRepository, Topic $topic, Request $request): Response
     {
-        $comment = new Comment();
-        $comment->setAuthor($this->getUser());
-        $comment->setTopic($topic);
-        $form = $this->createForm(CommentType::class, $comment);
-        $form->handleRequest($request);
+        if ($this->getUser()) {
+            $comment = new Comment();
+            $comment->setAuthor($this->getUser());
+            $comment->setTopic($topic);
+            $form = $this->createForm(CommentType::class, $comment);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($comment);
-            $entityManager->flush();
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($comment);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('topic_show', ['id' => $topic->getId()]);
+                return $this->redirectToRoute('topic_show', ['id' => $topic->getId()]);
+            }
+
+            return $this->render('topic/show.html.twig', [
+                'topic' => $topic,
+                'form' => $form->createView(),
+                'sections' => $sectionRepository->findAll()
+            ]);
         }
 
         return $this->render('topic/show.html.twig', [
             'topic' => $topic,
-            'form' => $form->createView(),
             'sections' => $sectionRepository->findAll()
         ]);
     }

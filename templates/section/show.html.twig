@@ -22,7 +22,7 @@
             <tbody class="topic-table__content">
             {% for topic in pagination %}
                 <tr>
-                    <td><a href="#">{{ topic.title }}</a></td>
+                    <td><a href="{{ path('topic_show', {'id': topic.id}) }}">{{ topic.title }}</a></td>
                     <td>{{ topic.author }}</td>
                     <td>{{ topic.createdDate|date("d.m.Y H:i:s") }}</td>
                     <td>{{ topic.comments.count }}</td>
