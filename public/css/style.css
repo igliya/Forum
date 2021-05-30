@@ -607,3 +607,45 @@ form .input-box span.details {
     border-color: #bfc1df;
 }
 /* new topic form styles end */
+
+/* topic show styles start */
+.topic-title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.topic-text {
+    width: 100%;
+    line-height: 32px;
+    margin: 20px 20px 20px;
+    background: #DEDDF1;
+    color: #172E68;
+    padding: 15px;
+}
+
+.topic-text-comment {
+    width: 60%;
+    line-height: 32px;
+    margin: 20px;
+    background: #DEDDF1;
+    color: #172E68;
+    padding: 15px;
+}
+
+.topic-author {
+    font-weight: bold;
+}
+
+.topic-date {
+    padding-left: 10px;
+    color: #82829C;
+}
+
+.topic-divider {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+/* topic show styles end */

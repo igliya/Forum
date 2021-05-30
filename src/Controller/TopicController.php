@@ -51,7 +51,7 @@ class TopicController extends AbstractController
     {
         return $this->render('topic/show.html.twig', [
             'topic' => $topic,
-            'sections' => $sectionRepository->findAll()()
+            'sections' => $sectionRepository->findAll()
         ]);
     }
 }

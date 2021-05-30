@@ -1,34 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Topic{% endblock %}
+{% block title %}{{ topic.title }}{% endblock %}
 
-{% block body %}
-    <h1>Topic</h1>
+{% block content %}
+    <div class="topic-title text-left">{{ topic.title }} - {{ topic.section.name }}</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ topic.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ topic.title }}</td>
-            </tr>
-            <tr>
-                <th>Text</th>
-                <td>{{ topic.text }}</td>
-            </tr>
-            <tr>
-                <th>CreatedDate</th>
-                <td>{{ topic.createdDate ? topic.createdDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="d-flex flex-row">
+        <div class="topic-text rounded shadow">
+            <div>
+                <span class="topic-author">{{ topic.author.name }}</span>
+                <span class="topic-date">{{ topic.createdDate|date('d.m.Y H:i:s') }}</span>
+            </div>
+            <span>{{ topic.text|raw }}</span>
+        </div>
+    </div>
 
-    <a href="{{ path('topic_index') }}">back to list</a>
+    <hr class="topic-divider"/>
 
-    <a href="{{ path('topic_edit', {'id': topic.id}) }}">edit</a>
-
-    {{ include('topic/_delete_form.html.twig') }}
+    {% for comment in topic.comments %}
+        <div class="d-flex{% if app.user.id is same as (comment.author.id) %}
+            {{ "flex-row-reverse" }}
+        {% else %}
+            {{ "flex-row" }}
+        {% endif %}">
+            <div class="topic-text-comment rounded shadow">
+                <div>
+                    <span class="topic-author">
+                        {{ comment.author.name }}
+                        {% if comment.author.id is same as(topic.author.id) %}
+                            <span>*</span>
+                        {% endif %}
+                    </span>
+                    <span class="topic-date">{{ comment.createdDate|date('d.m.Y H:i:s') }}</span>
+                </div>
+                <span>{{ comment.text }}</span>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}
