@@ -43,7 +43,12 @@
                                     </li>
                                 {% endif %}
                                 <li class="header__item">
-                                    <a href="{{ path('app_logout') }}" class="header__link">Выход</a>
+                                    <div class="dropdown">
+                                        <button class="dropdown-button">{{ app.user.name }}</button>
+                                        <div class="dropdown-content">
+                                            <a href="{{ path('app_logout') }}">Выход</a>
+                                        </div>
+                                    </div>
                                 </li>
                             {% endif %}
                         </ul>
