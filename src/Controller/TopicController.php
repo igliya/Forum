@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TopicController extends AbstractController
 {
     /**
-     * @Route("/new", name="app_new_topic", methods={"GET","POST"})
+     * @Route("/new", name="app_topic_new", methods={"GET","POST"})
      */
     public function new(SectionRepository $sectionRepository, Request $request): Response
     {
@@ -38,7 +38,7 @@ class TopicController extends AbstractController
             $entityManager->persist($topic);
             $entityManager->flush();
 
-            return $this->redirectToRoute('topic_show', ['id' => $topic->getId()]);
+            return $this->redirectToRoute('app_topic_show', ['id' => $topic->getId()]);
         }
 
         return $this->render('topic/new.html.twig', [
@@ -49,7 +49,7 @@ class TopicController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="topic_show", methods={"GET", "POST"})
+     * @Route("/{id}", name="app_topic_show", methods={"GET", "POST"})
      */
     public function show(
         SectionRepository $sectionRepository,
@@ -90,7 +90,7 @@ class TopicController extends AbstractController
                 $entityManager->persist($comment);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('topic_show', ['id' => $topic->getId()]);
+                return $this->redirectToRoute('app_topic_show', ['id' => $topic->getId()]);
             }
 
             return $this->render('topic/show.html.twig', [

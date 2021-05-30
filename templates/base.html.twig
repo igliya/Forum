@@ -35,7 +35,7 @@
                                 </li>
                             {% else %}
                                 <li class="header__item">
-                                    <a href="{{ path('app_new_topic') }}" class="header__link">Создать топик</a>
+                                    <a href="{{ path('app_topic_new') }}" class="header__link">Создать топик</a>
                                 </li>
                                 {% if is_granted('ROLE_ADMIN') %}
                                     <li class="header__item">
