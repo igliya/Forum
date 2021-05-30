@@ -361,6 +361,10 @@ body {
 .header__link:hover, .header__link:active{
     opacity: .85;
 }
+
+.no-hover{
+    pointer-events: none;
+}
 /* header style end */
 
 /* form errors styles start */
