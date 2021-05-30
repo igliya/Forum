@@ -26,7 +26,7 @@
                 <td><a href="{{ path('topic_show', {'id': topic.id}) }}">{{ topic.title }}</a></td>
                 <td><a href="/{{ topic.section.code }}">{{ topic.section.name }}</a></td>
                 <td>{{ topic.author }}</td>
-                <td>{{ topic.createdDate|date("d-m-Y H:i:s") }}</td>
+                <td>{{ topic.createdDate|date("d.m.Y H:i:s") }}</td>
                 <td>{{ topic.comments.count }}</td>
             </tr>
             {% endfor %}

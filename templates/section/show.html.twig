@@ -24,7 +24,7 @@
                 <tr>
                     <td><a href="#">{{ topic.title }}</a></td>
                     <td>{{ topic.author }}</td>
-                    <td>{{ topic.createdDate|date("d-m-Y H:i:s") }}</td>
+                    <td>{{ topic.createdDate|date("d.m.Y H:i:s") }}</td>
                     <td>{{ topic.comments.count }}</td>
                 </tr>
             {% endfor %}

@@ -39,7 +39,7 @@ class CommentCrudController extends AbstractCrudController
         yield TextareaField::new('text')->setLabel('Текст')->hideOnIndex();
         yield DateTimeField::new('createdDate')
             ->setLabel('Дата создания')
-            ->setFormat('dd-MM-yyyy HH:mm:ss')
+            ->setFormat('dd.MM.yyyy HH:mm:ss')
             ->hideOnForm()
         ;
         yield AssociationField::new('topic')->setLabel('Топик')->hideOnForm();
