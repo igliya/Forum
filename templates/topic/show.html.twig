@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="topic-title text-left">{{ topic.title }} - {{ topic.section.name }}</div>
-
+    <!-- Topic text -->
     <div class="d-flex flex-row">
         <div class="topic-text rounded shadow">
             <div>
@@ -14,9 +14,16 @@
             <span>{{ topic.text|raw }}</span>
         </div>
     </div>
-
     <hr class="topic-divider"/>
-
+    {% if app.user is not same as(null) %}
+        <!-- Topic new comment form -->
+        <div class="d-flex flex-row">
+            <div class="comment-wrapper">
+                {{ include('comment/new.html.twig') }}
+            </div>
+        </div>
+    {% endif %}
+    <!-- Topic comments -->
     {% for comment in topic.comments %}
         <div class="d-flex{% if app.user.id is same as (comment.author.id) %}
             {{ "flex-row-reverse" }}

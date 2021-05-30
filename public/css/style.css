@@ -649,3 +649,46 @@ form .input-box span.details {
     margin-right: 20px;
 }
 /* topic show styles end */
+
+/* new comment form start */
+.comment-wrapper {
+    width: 100%;
+    line-height: 32px;
+    margin: 20px 20px 20px 20px;
+}
+.content form .new-comment-details {
+    width: 100%;
+    display: inline;
+    justify-content: space-between;
+    margin: 20px 0 12px 20px;
+}
+
+form .new-comment-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+form .input-box span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.new-comment-details .input-box textarea {
+    height: 200px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 15px;
+    padding-left: 15px;
+    border: 0.2px solid rgb(211, 211, 224);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    resize: none;
+}
+
+.new-comment-details .input-box input:focus,
+.new-comment-details .input-box input:valid {
+    border-color: #bfc1df;
+}
+/* new comment form end */

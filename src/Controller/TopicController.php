@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Topic;
+use App\Form\CommentType;
 use App\Form\TopicType;
 use App\Repository\SectionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -45,12 +47,27 @@ class TopicController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="topic_show", methods={"GET"})
+     * @Route("/{id}", name="topic_show", methods={"GET", "POST"})
      */
-    public function show(SectionRepository $sectionRepository, Topic $topic): Response
+    public function show(SectionRepository $sectionRepository, Topic $topic, Request $request): Response
     {
+        $comment = new Comment();
+        $comment->setAuthor($this->getUser());
+        $comment->setTopic($topic);
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('topic_show', ['id' => $topic->getId()]);
+        }
+
         return $this->render('topic/show.html.twig', [
             'topic' => $topic,
+            'form' => $form->createView(),
             'sections' => $sectionRepository->findAll()
         ]);
     }
