@@ -547,6 +547,18 @@ form .button input {
 /* paginator styles end */
 
 /* new topic form styles start */
+.topic-form-container {
+    margin: 0 auto;
+    width: 80%;
+    padding: 25px 30px;
+}
+
+.topic-form-container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
 .content form .new-topic-details {
     width: 100%;
     display: inline;
