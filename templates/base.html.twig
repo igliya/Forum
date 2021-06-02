@@ -26,7 +26,7 @@
                             <li class="header__item">
                                 <a href="{{ path('app_about') }}" class="header__link">О сайте</a>
                             </li>
-                            {% if app.user is same as(null) %}
+                            {% if not is_granted('ROLE_USER') %}
                                 <li class="header__item">
                                     <a href="{{ path('app_login') }}" class="header__link">Вход</a>
                                 </li>
