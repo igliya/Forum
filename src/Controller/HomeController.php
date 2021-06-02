@@ -23,20 +23,17 @@ class HomeController extends AbstractController
         Request $request
     ): Response {
         // get topics query
-        $topicsQuery = $topicRepository->createQueryBuilder('t')
-            ->orderBy('t.createdDate', 'DESC')
-            ->getQuery()
-            ;
+        $topicsQuery = $topicRepository->getPaginationQuery();
         // get page number
-        $page_number = $request->query->getInt('page', 1);
+        $pageNumber = $request->query->getInt('page', 1);
         // set correct page number
-        if ($page_number < 1) {
-            $page_number = 1;
+        if ($pageNumber < 1) {
+            $pageNumber = 1;
         }
         // paginate
         $pagination = $paginator->paginate(
             $topicsQuery,
-            $page_number,
+            $pageNumber,
             10
         );
 
@@ -69,22 +66,17 @@ class HomeController extends AbstractController
             throw new NotFoundHttpException();
         }
         // get topics query
-        $topicsQuery = $topicRepository->createQueryBuilder('t')
-            ->andWhere('t.section = :val')
-            ->setParameter('val', $section)
-            ->orderBy('t.createdDate', 'DESC')
-            ->getQuery()
-            ;
+        $topicsQuery = $topicRepository->getSectionPaginationQuery($section);
         // get page number
-        $page_number = $request->query->getInt('page', 1);
+        $pageNumber = $request->query->getInt('page', 1);
         // set correct page number
-        if ($page_number < 1) {
-            $page_number = 1;
+        if ($pageNumber < 1) {
+            $pageNumber = 1;
         }
         // paginate
         $pagination = $paginator->paginate(
             $topicsQuery,
-            $page_number,
+            $pageNumber,
             10
         );
 

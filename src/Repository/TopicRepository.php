@@ -18,4 +18,22 @@ class TopicRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Topic::class);
     }
+
+    public function getPaginationQuery()
+    {
+        return $this->createQueryBuilder('t')
+            ->orderBy('t.createdDate', 'DESC')
+            ->getQuery()
+            ;
+    }
+
+    public function getSectionPaginationQuery($section)
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.section = :val')
+            ->setParameter('val', $section)
+            ->orderBy('t.createdDate', 'DESC')
+            ->getQuery()
+            ;
+    }
 }
