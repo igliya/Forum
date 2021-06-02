@@ -59,22 +59,17 @@ class TopicController extends AbstractController
         Request $request
     ): Response {
         // get comments query
-        $commentsQuery = $commentRepository->createQueryBuilder('c')
-            ->where('c.topic = :value')
-            ->setParameter('value', $topic)
-            ->orderBy('c.createdDate', 'DESC')
-            ->getQuery()
-        ;
+        $commentsQuery = $commentRepository->getTopicCommentsQuery($topic);
         // get page number
-        $page_number = $request->query->getInt('page', 1);
+        $pageNumber = $request->query->getInt('page', 1);
         // set correct page number
-        if ($page_number < 1) {
-            $page_number = 1;
+        if ($pageNumber < 1) {
+            $pageNumber = 1;
         }
         // paginate
         $pagination = $paginator->paginate(
             $commentsQuery,
-            $page_number,
+            $pageNumber,
             10
         );
         // if user logged in

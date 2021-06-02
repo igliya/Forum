@@ -18,4 +18,14 @@ class CommentRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Comment::class);
     }
+
+    public function getTopicCommentsQuery($topic)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.topic = :value')
+            ->setParameter('value', $topic)
+            ->orderBy('c.createdDate', 'DESC')
+            ->getQuery()
+            ;
+    }
 }
