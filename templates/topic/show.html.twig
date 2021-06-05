@@ -3,7 +3,7 @@
 {% block title %}{{ topic.title }}{% endblock %}
 
 {% block content %}
-    <div class="topic-title text-left">{{ topic.title }} - {{ topic.section.name }}</div>
+    <div class="topic-title text-left">{{ topic.title }} - <span class="text-danger">В обработке</span></div>
     <!-- Topic text -->
     <div class="d-flex flex-row">
         <div class="topic-text rounded shadow">
@@ -14,7 +14,17 @@
             <span class="topic-text-block">{{ topic.text|raw }}</span>
         </div>
     </div>
+    <a class="ticket-file" href="{{ path('app_topic_show', {'id': topic.id}) }}">Прикреплённый файл</a>
+    <div class="ticket-support text-left">Назначенный сотрудник: {{ topic.author.name }}</div>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="ticket-support text-left">
+            <a href="{{ path('app_topic_edit') }}" class="btn btn-primary text-white">Редактировать</a>
+        </div>
+    {% endif %}
+
     <hr class="topic-divider"/>
+
     {% if is_granted('ROLE_USER') %}
         <!-- Topic new comment form -->
         <div class="d-flex flex-row">

@@ -49,6 +49,35 @@ class TopicController extends AbstractController
     }
 
     /**
+     * @Route("/edit", name="app_topic_edit", methods={"GET","POST"})
+     */
+    public function edit(SectionRepository $sectionRepository, Request $request): Response
+    {
+        // redirect to app_home if user haven't logged in
+        if ($this->getUser() === null) {
+            return $this->redirectToRoute('app_home');
+        }
+        $topic = new Topic();
+        $topic->setAuthor($this->getUser());
+        $form = $this->createForm(TopicType::class, $topic);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($topic);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_topic_show', ['id' => $topic->getId()]);
+        }
+
+        return $this->render('topic/edit.html.twig', [
+            'topic' => $topic,
+            'form' => $form->createView(),
+            'sections' => $sectionRepository->findAll()
+        ]);
+    }
+
+    /**
      * @Route("/{id}", name="app_topic_show", methods={"GET", "POST"})
      */
     public function show(

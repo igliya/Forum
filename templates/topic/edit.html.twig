@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Редактирование тикета{% endblock %}
+
+{% block content %}
+    <!-- New topic form start -->
+    <div class="topic-form-container">
+        <div class="title text-center">Редактирование тикета</div>
+        <div class="content">
+            <form>
+                <div class="new-topic-details">
+                    <div class="input-box">
+                        <span class="details">Ответственный сотрудник</span>
+                        <select class="form-select">
+                            <option selected>Выберите сотрудника</option>
+                            <option value="1">Support 1</option>
+                            <option value="2">Support 2</option>
+                            <option value="3">Support 3</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Статус</span>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected value="1">В обработке</option>
+                            <option value="2">В работе</option>
+                            <option value="3">Закрыт</option>
+                        </select>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="is-closed">
+                        <label class="checkbox-label" for="is-closed">Закрыть тикет</label>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Сохранить">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- New topic form end -->
+{% endblock %}

@@ -317,6 +317,7 @@ body {
 /* width correction */
 .main__row {
     max-width: 100%;
+    align-content: center;
 }
 
 /* header style start */
@@ -520,7 +521,7 @@ form .button {
 
 form .button input {
     height:100%;
-    width: 100%;
+    width: 20%;
     border-radius: 15px;
     border: none;
     color: #fff;
@@ -710,8 +711,33 @@ form .input-box span.details {
 }
 
 .topic-divider {
+    margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.ticket-file {
+    font-size: 15px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.ticket-support {
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.ticket-edit {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 /* topic show styles end */
 
@@ -734,6 +760,12 @@ form .new-comment-details .input-box {
 }
 
 form .input-box span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.label-details {
     display: block;
     font-weight: 500;
     margin-bottom: 5px;

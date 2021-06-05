@@ -13,19 +13,19 @@
             {% endif %}
 <div class="new-topic-details">
     <div class="input-box">
-        <span class="details">Название топика</span>
+        <span class="details">Тема</span>
         {{ form_widget(form.title) }}
     </div>
     <div class="input-box">
-        <span class="details">Текст топика</span>
+        <span class="details">Описание проблемы</span>
         {{ form_widget(form.text) }}
     </div>
-    <div class="input-box">
-        <span class="details">Раздел топика</span>
-        {{ form_widget(form.section) }}
+    <div class="mb-3">
+        <label for="formFile" class="form-label label-details">Файл</label>
+        <input class="form-control" type="file" id="formFile">
     </div>
 </div>
 <div class="button">
-    <input type="submit" value="Создать топик">
+    <input type="submit" value="Создать тикет">
 </div>
 {{ form_end(form) }}

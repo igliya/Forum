@@ -51,11 +51,6 @@ class TopicType extends AbstractType
                     ])
                 ]
             ])
-
-            ->add('section', EntityType::class, [
-                'class' => Section::class,
-                'choice_label' => 'name'
-            ])
             ->add('author', HiddenType::class)
         ;
 
